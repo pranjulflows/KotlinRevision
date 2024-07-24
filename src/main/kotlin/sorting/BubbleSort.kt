@@ -1,4 +1,4 @@
-package org.macamps
+package org.macamps.sorting
 
 fun main() {
     val unsorted = mutableListOf(9, 3, 4, 134, 45, 1, 4)
