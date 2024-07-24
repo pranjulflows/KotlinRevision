@@ -2,7 +2,20 @@ package org.macamps
 
 //  Loops Practice
 fun main() {
-    for (i in 1..5) {
-        println("i = $i")
+    var counted =0
+    val cakes = listOf("vanilla","Cheese Cake","chocolate Cake")
+
+    while(counted < cakes.count()){
+        println("cake ${cakes[counted]} is counted")
+        counted++
     }
+
+    for (cake in cakes){
+        print("$cake ")
+    }
+
+    for (numbers in 10 downTo  0 step 5) {
+        println(numbers)
+    }
+
 }
