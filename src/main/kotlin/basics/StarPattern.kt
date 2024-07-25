@@ -1,4 +1,4 @@
-package org.macamps
+package org.macamps.basics
 
 fun main() {
     for (number in 1..5) {

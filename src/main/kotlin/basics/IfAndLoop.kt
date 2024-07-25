@@ -1,4 +1,4 @@
-package org.macamps
+package org.macamps.basics
 
 fun main(){
     val words = listOf("dinosaur", "limousine", "magazine", "language")

@@ -1,4 +1,4 @@
-package org.macamps
+package org.macamps.basics
 
 //  Loops Practice
 fun main() {
