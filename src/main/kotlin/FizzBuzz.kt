@@ -1,7 +1,8 @@
 package org.macamps
 
-fun main() {
+import java.util.LinkedList
 
+fun main() {
     for (number in 1..100) {
         val result = when {
             (number % 15 == 0) -> "FizzBuzz"

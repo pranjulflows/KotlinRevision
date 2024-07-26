@@ -4,7 +4,7 @@ import org.macamps.queue.QueueImpl
 
 typealias Visitor<T> = (TreeNode<T>) -> Unit // to make it more readable create a TypeAlias for the high Order Function
 
-class TreeNode<T : Any>(val value: T) {
+class TreeNode<T : Any>(private val value: T) {
     private val children: MutableList<TreeNode<T>> = mutableListOf()
     fun add(child: TreeNode<T>) = children.add(child)
 
