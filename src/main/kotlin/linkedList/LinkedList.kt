@@ -1,21 +1,65 @@
 package org.macamps.linkedList
 
-data class Node<T : Any>(
-    var value: T, var next: Node<T>? = null
-) {
+class LinkedList<T : Any> {
+    private var head: Node<T>? = null
+    private var tail: Node<T>? = null
+    private var size: Int = 0
+
+    private fun isEmpty(): Boolean = size == 0
 
     override fun toString(): String {
-        return if (next != null) {
-            "$value -> ${next.toString()}"
-        } else "$value"
+        return if (isEmpty()) return "Empty List" else head
+            .toString()
+
     }
 
-    fun printInReverse() {
+    // add the value at the head of the list or at the very first node
 
-        next?.printInReverse()
-        if (next != null) {
-            print("->")
+
+    fun push(value: T): LinkedList<T> = apply {
+        head = Node(value, next = head)
+        if (tail == null) {
+            tail = head
         }
-        print(value.toString())
+        size++
     }
+
+    // add value to list at the end of list
+    fun append(value: T): LinkedList<T> = apply {
+        if (isEmpty()) {
+            push(value)
+            return this
+        }
+        val newNode = Node(value)
+        tail!!.next = newNode
+        tail = newNode
+        size++
+    }
+
+    // to find a value of specific node or index
+    fun nodeAt(index: Int): Node<T>? {
+        var currentNode = head
+        var currentIndex = 0
+
+        while (currentNode != null && currentIndex < index) {
+            currentNode = currentNode.next
+            currentIndex++
+
+        }
+        return currentNode
+    }
+
+
+    // insert a value at specific node or index
+    fun insert(value: T, afterNode: Node<T>): Node<T> {
+        if (tail == afterNode) {
+            append(value)
+            return tail!!
+        }
+        val newNode = Node(value, next = afterNode.next)
+        afterNode.next = newNode
+        size++
+        return newNode
+    }
+
 }
